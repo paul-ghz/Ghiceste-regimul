@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #fffddf;
+        }
+        .body{
+            display: grid;
+            grid-template-rows: 20dvh 70dvh;
+        }
+        .top{
+            display: grid;
+            grid-template-columns: 25% 50% 25%;
+            margin-top: none;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+        }
+        .hint_button{
+            width: 75%;
+            height: 50%;
+            background-color: #ddce00;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            margin-left: 10%;
+            margin-top: 20%;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10dvh;
+            font-size: 2dvh;
+        }
+        .hint_button:active{
+            background-color: #2d9665;
+        }
+        .display{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3dvh;
+            margin-top: 5%;
+        }
+        .guess_button{
+            width: 75%;
+            height: 50%;
+            background-color: #ddce00;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            margin-left: 10%;
+            margin-top: 20%;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10dvh;
+            font-size: 2dvh;
+        }
+        .guess_button:active{
+            background-color: #2d9665;
+        }
+        .main{
+            display: grid;
+            grid-template-rows: 33.3% 33.3% 33.3%;
+            margin-top: 10dvh;
+        }
+        .row1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2dvh;
+            margin-top: 1dvh;
+        }
+        .row2{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2dvh;
+            margin-top: 1dvh;
+        }
+        .row3{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2dvh;
+            margin-top: 1dvh;
+        }
+        .butoane{
+            margin: 0.5dvh 4dvw;
+            width: 8.5dvw;
+            height:7dvh;
+            background-color: #bf98ff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            word-wrap: break-word;
+            border-radius: 10dvh;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="top">
+            <div class="hint"><button class="hint_button" id="hint_button" onclick="hint()">hint</button></div>
+            <div class="display" id="display">Bun Venit! Pentru a incepe apasa pe Hint</div>
+            <div class="guess"><button class="guess_button" id="guess_button" onclick="guess()">guess</button></div>
+        </div>
+        <div class="main">
+            <div class="row1"><button class="butoane" id="0101" onclick="butoane(event)">Democratie Parlamentara</button><button class="butoane" id="0102" onclick="butoane(event)">Democratie Prezidentiala</button><button class="butoane" id="0103" onclick="butoane(event)">Democratie Semi-Prezidentiala</button><button class="butoane" id="0104" onclick="butoane(event)">Democratie Directa</button><button class="butoane" id="0105" onclick="butoane(event)">Dictatura Militara</button><button class="butoane" id="0106" onclick="butoane(event)">Partid Unic</button></div>
+            <div class="row2"><button class="butoane" id="0201" onclick="butoane(event)">Autocratie/Cultul Personalitatii</button><button class="butoane" id="0202" onclick="butoane(event)">Monarhia Absoluta</button><button class="butoane" id="0203" onclick="butoane(event)">Comunism</button><button class="butoane" id="0204" onclick="butoane(event)">Fascism</button><button class="butoane" id="0205" onclick="butoane(event)">Nazism</button><button class="butoane" id="0206" onclick="butoane(event)">Regim Hibrid</button></div>
+            <div class="row3"><button class="butoane" id="0301" onclick="butoane(event)">Teocratie</button><button class="butoane" id="0302" onclick="butoane(event)">Pericle</button><button class="butoane" id="0303" onclick="butoane(event)">Abraham Lincoln</button><button class="butoane" id="0304" onclick="butoane(event)">Winston Churchill</button><button class="butoane" id="0305" onclick="butoane(event)">Nelson Mandela</button><button class="butoane" id="0306" onclick="butoane(event)">Barack Obama</button></div>
+        </div>
+    </div>
+</body>
+<script>
+    let i, j, ok_hint=0, ok_guess = false;
+    i = Math.floor(Math.floor(Math.random() * 6)/2)+1;
+    j = Math.floor(Math.random() * 6)+1;
+    //i=1;
+    // j=1;
+    function hint(){
+        let nr=0;
+        while(hinturi[nr].id != '0'+i+'0'+j){
+            nr++;
+        }
+        if(ok_hint<5){
+            document.getElementById("display").innerHTML = "Hint: "+hinturi[nr].h[ok_hint];
+            ok_hint++;
+            console.log(ok_hint);
+        }
+    }
+    function guess(){
+        ok_guess = !ok_guess;
+        console.log(ok_guess);
+    }
+    function butoane(event){
+        x=event.target.getAttribute('id');
+        if(ok_guess == true && ok_hint<=5){
+            if('0'+i+'0'+j == x){
+                document.getElementById("display").innerHTML = "Ai ghicit!";
+                document.getElementById(x).style.backgroundColor = "#00ff00";
+            }
+            else{
+                if(ok_hint<5){
+                    hint();
+                    document.getElementById(x).style.backgroundColor = "#ff0000";
+                }
+                else{
+                    document.getElementById("display").innerHTML = "S-au epuizat incercarile, asta era raspunsul";
+                    document.getElementById('0'+i+'0'+j).style.backgroundColor = "#00ff00";
+                }
+            }
+        }
+        else {
+            const clickedButton = event.currentTarget; 
+            let culoare=window.getComputedStyle(clickedButton).backgroundColor;
+            if(culoare == "rgb(191, 152, 255)"){
+                clickedButton.style.backgroundColor = "#fff200";
+            }
+            if(culoare == "rgb(255, 242, 0)"){
+                clickedButton.style.backgroundColor = "#ff00ee";
+            }
+            if(culoare == "rgb(255, 0, 238)"){
+                clickedButton.style.backgroundColor = "#bf98ff";
+            }
+
+        }
+    }
+    let hinturi = [
+        { id : "0101", h :["Separarea puterilor în stat există", "Puterea executivă derivă direct din cea legislativă și răspunde în fața ei.","Cetățenii votează parlamentul, dar nu votează direct șeful guvernului sau șeful statului.","Șeful statului are un rol mai degrabă simbolic.","Guvernul este condus de un Prim-ministru, care are nevoie de sustinerea majoritatii din parlament sa ramana in functie"]},
+        { id : "0102", h :["Separare foarte strictă și clară a puterilor în stat","Președintele este ales direct sau indirect de către cetățeni, având un mandat fix care nu poate fi scurtat de o moțiune de cenzură obișnuită a parlamentului." , "Aceeași persoană îndeplinește simultan atât rolul de Șef al Statului, cât și pe cel de Șef al Guvernului" , "Președintele are puterea de a pune veto pe legile votate de parlament și își numește singur miniștrii" , "Exemplu: Statele Unite ale Americii"]},
+        { id : "0103", h :["Regim politic hibrid" , "Puterea executivă este bicefală (împărțită între două persoane): un Președinte și un Prim-ministru." , "Președintele este ales prin vot direct de către cetățeni și are atribuții executive importante, dar nu conduce activ treburile zilnice ale guvernului." , "Prim-ministrul conduce Guvernul și răspunde politic în fața Parlamentului, putând fi demis prin moțiune de cenzură." , "Exemplu: Romania si Franța"]},
+        { id : "0104", h :["În acest sistem, cetățenii nu își delegă puterea unor reprezentanți aleși, ci exercită ei înșiși puterea de decizie." , "Deciziile politice, legile și modificările constituționale sunt votate nemijlocit de către popor." , "Instrumentul principal de guvernare este referendumul" , "A fost practicată în forma sa pură în Atena Antică" , "In prezent, Elvetia foloseste cel mai mult elemente din acest regim"]},
+        { id : "0105", h :["În acest regim autoritar, puterea politică este preluată și exercitată direct de către forțele armate ale statului" , "Preluarea puterii are loc de obicei violent, printr-o lovitură de stat" , "Guvernarea este adesea condusă de un comitet de înalți ofițeri din armată" , "Drepturile civile, libertatea presei și activitatea partidelor politice sunt severe restricționate sau interzise" , "Opozitia este suprimata de fortele de ordine"]},
+        { id : "0106", h :["În acest sistem politic o singură organizație politică deține monopolul absolut asupra puterii." , "Existența altor partide de opoziție este interzisă prin lege" , "Ideologia formațiunii politice devine doctrină oficială de stat" , "Statul și partidul fuzionează complet; institutiile publice sunt subordonate partidului de la conducere" , "Exemple: Partidul Comunist Român / Partidul Comnuist Chinez"]},
+        { id : "0201", h :["Întreaga putere a statului este concentrată în mâinile unui singur lider absolut" , "Figura liderului este idealizată și glorificată excesiv prin propagandă" , "Liderul este prezentat populației ca un salvator" , "Orice critică la adresa conducătorului este privită ca o trădare de țară" , "Exemple: Regimul lui Nicolae Ceausescu in România / Kim in Coreea"]},
+        { id : "0202", h :["Formă de guvernare ereditară în care întreaga suveranitate și putere decizională aparțin unui singur suveran, fără a fi limitate de o constituție sau un parlament." , "Nu există alegeri sau partide politice; succesiunea la tron se transmite automat de la o generație la alta în cadrul aceleiași familii" , "Suveranul acumulează toate cele trei puteri în stat" , "Sintagma celebră „Statul sunt eu!” definește perfect esența acestui regim." , "Conducătorul poartă titluri precum Rege, Împărat, Sultan sau Emir"]},
+        { id : "0203", h :["Ideologie și regim politic totalitar bazat pe egalitarism social radical" , "Ideologie și regim politic totalitar bazat pe egalitarism social radical" , "Societatea este structurată TEORETIC fără clase sociale" , "Puterea este deținută de o oligarhie numită nomenclatură, sub controlul unui singur partid." , "Bazat pe teoriile filosofice ale lui Karl Marx și Friedrich Engels"]},
+        { id : "0204", h :["Ideologie și regim politic ultra-naționalist, autoritar și antidemocratic" , "Pune interesul suprem al Națiunii sau al Statului mai presus de orice" , "Economia este organizată pe principii corporatiste, sub un control strict al statului" , "Simbolul acestei mișcări provine dintr-un vechi fascicol de nuiele legate în jurul unei securi" , "A fost instaurat în Italia în anii 1920 sub conducerea dictatorului Benito Mussolini"]},
+        { id : "0205", h :["O formă extremă și radicală de fascism totalitar" , "Societatea și statul sunt reorganizate pe baza conceptului de „puritate a sângelui”, promovând ideea superiorității rasiale a poporului arian" , "Politica sa externă expansionistă a urmărit obținerea de „spațiu de locuit” și a dus la declanșarea Celui de-al Doilea Război Mondial." , "A fost responsabil pentru Holocaust" , "A fost regimul totalitar din Germania 1933-1945"]},
+        { id : "0206", h :["Un sistem politic care combină trasături ale democrației cu elemente puternic autoritare." , "Alegerile au loc cu regularitate, însă procesul electoral nu este pe deplin liber și echitabil" , "Instituțiile democratice există pe hârtie dar sunt slăbite" , "Opoziția este tolerată oficial, dar întâmpină obstacole majore în campanii" , "Este regimul în care cetățenii pot vota pentru a schimba opțiunile de pe buletinul de vot, dar nu pot schimba cu adevărat cine deține puterea reală în stat."]}, 
+        { id : "0301", h :["Formă de guvernare în care autoritatea politică supremă este deținută de lideri religioși" , "Legile statului nu sunt create prin dezbatere laică, ci sunt derivate direct din textele și dogmele religioase ale credinței oficiale." , "Nu există o separare între Biserică și Stat" , "Abaterile de la normele religioase sunt considerate infracțiuni legale grave" , "Exemplu: Iran"]},
+        { id : "0302", h :["A fost un influent om politic, orator și general (strateg) din Grecia Antică" , "A fost principalul promotor al consolidării și extinderii democrației directe." , "A fost un mare ocrotitor al artelor și filozofiei." , "Este celebru pentru discursul său funebru (Epitaf)." , "A fost conducătorul emblematic al Atenei"]},
+        { id : "0303", h :["Om politic și avocat american" , "Considerat unul dintre cei mai importanți președinți din istoria Statelor Unite ale Americii." , "A condus țara în timpul celei mai grave crize interne din istoria sa." , "Este celebru pentru discursul în care a definit democrația prin formula „guvernarea poporului, de către popor, pentru popor”." , "Al 16-lea președinte al SUA,"]},
+        { id : "0304", h :["Om de stat, orator excepțional, militar și scriitor britanic." , "A fost prim-ministru al Regatului Unit în două mandate, conducând țara prin cele mai grele momente ale Celui de-al Doilea Război Mondial." , "Este celebru pentru discursurile sale mobilizatoare" , "A fost unul dintre cei „Trei Mari” conducători ai Aliaților." , "Înainte de a deveni prim-ministru, a activat ca soldat și corespondent de război"]},
+        { id : "0305", h :["Lider politic si revoluționar din Africa de Sud" , "A fost un simbol al luptei pentru drepturile omului." , "A petrecut 27 de ani în închisoare" , "A fost distins cu Premiul Nobel pentru Pace în 1993" , "A devenit primul președinte de culoare al Africii de Sud, ales în primele alegeri democratice și reprezentative din istoria țării."]},
+        { id : "0306", h :["Om politic, avocat și autor american." , "Considerat o figură emblematică a politicii moderne contemporane." , "A fost distins cu Premiul Nobel pentru Pace în 2009" , "În timpul mandatului său, a promovat și promulgat o reformă majoră a sistemului de sănătate din SUA" , "A fost al 44-lea președinte al Statelor Unite ale Americii și primul afro-american care a ocupat această funcție la Casa Albă."]}
+    ]   
+</script>
+</html>
